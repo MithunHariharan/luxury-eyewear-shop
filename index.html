@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison Eyewear | Luxury Eyewear</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <a href="#" class="logo">
+        MAISON <span>EYEWEAR</span>
+    </a>
+
+    <nav class="navigation">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">Our Story</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+        Cart
+        <span id="cartCount">0</span>
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            THE NEW STANDARD OF VISION
+        </p>
+
+        <h1>
+            See the world
+            <br>
+            <em>differently.</em>
+        </h1>
+
+        <p class="hero-description">
+            Discover refined eyewear created for those who appreciate
+            timeless design, exceptional comfort and understated luxury.
+        </p>
+
+        <a href="#shop" class="button dark-button">
+            Explore Collection
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="decorative-circle circle-one"></div>
+        <div class="decorative-circle circle-two"></div>
+
+        <div class="placeholder-glasses">
+            <div class="lens"></div>
+            <div class="bridge"></div>
+            <div class="lens"></div>
+        </div>
+
+        <div class="collection-label">
+            NEW<br>
+            COLLECTION<br>
+            2026
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COLLECTION INTRO ================= -->
+
+<section class="collection-intro" id="collections">
+
+    <p class="eyebrow">
+        CURATED FOR YOU
+    </p>
+
+    <h2>
+        Refined frames.
+        <br>
+        Exceptional character.
+    </h2>
+
+
+    <div class="category-list">
+
+        <a href="#shop">
+            <span>Optical</span>
+            <small>01</small>
+        </a>
+
+        <a href="#shop">
+            <span>Sunglasses</span>
+            <small>02</small>
+        </a>
+
+        <a href="#shop">
+            <span>Signature Collection</span>
+            <small>03</small>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<section class="shop-section" id="shop">
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="eyebrow">
+                THE COLLECTION
+            </p>
+
+            <h2>
+                Featured Frames
+            </h2>
+
+        </div>
+
+
+        <select id="productFilter" onchange="renderProducts()">
+
+            <option value="all">
+                All Frames
+            </option>
+
+            <option value="optical">
+                Optical
+            </option>
+
+            <option value="sun">
+                Sunglasses
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="products" id="products">
+
+        <!-- Products will be loaded by JavaScript -->
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="story-section" id="about">
+
+    <div>
+
+        <p class="eyebrow">
+            OUR PHILOSOPHY
+        </p>
+
+        <h2>
+            Luxury doesn't
+            <br>
+            need to shout.
+        </h2>
+
+    </div>
+
+
+    <div class="story-text">
+
+        <p>
+            We believe exceptional eyewear begins with thoughtful design.
+            Every frame is selected to balance comfort, proportion and
+            personality.
+        </p>
+
+        <p>
+            From everyday optical frames to distinctive sunglasses,
+            our collection is designed for people who want their eyewear
+            to become part of their identity.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter-section" id="contact">
+
+    <p class="eyebrow">
+        STAY IN THE FRAME
+    </p>
+
+    <h2>
+        New arrivals, private offers
+        <br>
+        & styling inspiration.
+    </h2>
+
+
+    <form onsubmit="subscribe(event)" class="newsletter-form">
+
+        <input
+            type="email"
+            placeholder="Your email address"
+            required
+        >
+
+        <button type="submit" class="button dark-button">
+            Subscribe
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        MAISON <span>EYEWEAR</span>
+    </div>
+
+    <div>
+        Luxury Optical • UAE
+    </div>
+
+    <div>
+        © 2026 Maison Eyewear
+    </div>
+
+</footer>
+
+
+<!-- ================= CART OVERLAY ================= -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart()">
+</div>
+
+
+<!-- ================= CART ================= -->
+
+<aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <button onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems">
+
+        <!-- Cart products appear here -->
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                AED 0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="button dark-button full-button"
+            onclick="checkout()">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
